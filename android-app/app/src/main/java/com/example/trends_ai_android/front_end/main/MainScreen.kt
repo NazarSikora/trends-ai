@@ -2,9 +2,9 @@ package com.example.trends_ai_android.front_end.main
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Chat
 import androidx.compose.material.icons.filled.PlayArrow
-import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
@@ -12,7 +12,8 @@ import androidx.compose.ui.Modifier
 @Composable
 fun MainScreen() {
     var selectedTab by remember { mutableStateOf(0) }
-    val screens = listOf("Search", "Recommendations", "Profile")
+
+    val screens = listOf("Chat", "Recommendations", "Profile")
 
     Scaffold(
         bottomBar = {
@@ -25,7 +26,7 @@ fun MainScreen() {
                         icon = {
                             Icon(
                                 when (index) {
-                                    0 -> Icons.Default.Search
+                                    0 -> Icons.Default.Chat
                                     1 -> Icons.Default.PlayArrow
                                     else -> Icons.Default.Person
                                 },
@@ -36,10 +37,10 @@ fun MainScreen() {
                 }
             }
         }
-    ) { innerPadding -> // Додаємо відступи
+    ) { innerPadding ->
         Surface(modifier = Modifier.padding(innerPadding)) {
             when (selectedTab) {
-                0 -> SearchScreen()
+                0 -> ChatScreen()
                 1 -> RecommendationsScreen()
                 2 -> ProfileScreen()
             }
@@ -47,10 +48,11 @@ fun MainScreen() {
     }
 }
 
-// ЗАМІСТЬ TODO ПИШЕМО РЕАЛЬНІ ФУНКЦІЇ
+/* ===== ЕКРАНИ ===== */
+
 @Composable
-fun SearchScreen() {
-    Text("Це екран пошуку")
+fun ChatScreen() {
+    Text("💬 Чат з AI")
 }
 
 @Composable
