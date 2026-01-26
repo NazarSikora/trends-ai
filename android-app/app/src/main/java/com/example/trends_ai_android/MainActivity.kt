@@ -7,7 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-// ВИПРАВЛЕНІ ІМПОРТИ (з урахуванням підкреслення у назві папки)
+
 import com.example.trends_ai_android.front_end.auth.AuthScreen
 import com.example.trends_ai_android.front_end.main.MainScreen
 
@@ -23,7 +23,9 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun AppNavigation() {
     val navController = rememberNavController()
+
     NavHost(navController = navController, startDestination = "auth") {
+
         composable("auth") {
             AuthScreen(onSuccess = {
                 navController.navigate("main") {
@@ -31,8 +33,9 @@ fun AppNavigation() {
                 }
             })
         }
+
         composable("main") {
-            MainScreen()
+            MainScreen()   // ✅ тільки один екран
         }
     }
 }

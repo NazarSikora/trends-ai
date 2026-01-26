@@ -10,6 +10,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 
 @Composable
+
 fun MainScreen() {
     var selectedTab by remember { mutableStateOf(0) }
 
@@ -41,7 +42,7 @@ fun MainScreen() {
         Surface(modifier = Modifier.padding(innerPadding)) {
             when (selectedTab) {
                 0 -> ChatScreen()
-                1 -> RecommendationsScreen()
+                1 -> RecommendationsScreen() // ✅ ТЕПЕР ОК
                 2 -> ProfileScreen()
             }
         }
@@ -57,7 +58,7 @@ fun ChatScreen() {
 
 @Composable
 fun RecommendationsScreen() {
-    Text("Тут будуть рекомендації")
+    Text("🔥 Рекомендації з соцмереж")
 }
 
 @Composable
